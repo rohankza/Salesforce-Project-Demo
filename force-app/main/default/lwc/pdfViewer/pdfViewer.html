@@ -1,0 +1,74 @@
+<template>
+
+    <lightning-card title="PDF Viewer">
+
+        <div class="pdf-container">
+
+            <!-- Page Navigation -->
+
+            <div class="navigation">
+
+
+                <iframe
+    src={viewerUrl}
+    width="100%"
+    height="800px">
+</iframe>
+                <lightning-button
+                    label="Previous"
+                    onclick={handlePrevious}
+                    disabled={isFirstPage}>
+                </lightning-button>
+
+                <span class="page-number">
+                    Page {currentPage} / {totalPages}
+                </span>
+
+                <lightning-button
+                    label="Next"
+                    onclick={handleNext}
+                    disabled={isLastPage}>
+                </lightning-button>
+
+            </div>
+
+
+            <!-- Go To Page -->
+
+            <div class="go-to-page">
+
+                <lightning-input
+                    type="number"
+                    label="Go To Page"
+                    value={pageInput}
+                    min="1"
+                    max={totalPages}
+                    onchange={handlePageInput}>
+                </lightning-input>
+
+                <lightning-button
+                    label="Go"
+                    onclick={handleGoToPage}>
+                </lightning-button>
+
+            </div>
+
+
+            <!-- PDF -->
+
+            <template if:true={pdfUrl}>
+
+                <iframe
+                    src={viewerUrl}
+                    width="100%"
+                    height="800px"
+                    title="PDF Viewer">
+                </iframe>
+
+            </template>
+
+        </div>
+
+    </lightning-card>
+
+</template>
