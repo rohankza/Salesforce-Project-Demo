@@ -1,0 +1,55 @@
+<template>
+
+    <lightning-card title="DocuSign Integration">
+
+        <div class="slds-p-around_medium">
+
+            <lightning-input
+                label="Recipient Name"
+                value={recipientName}
+                onchange={handleName}>
+            </lightning-input>
+
+            <lightning-input
+                type="email"
+                label="Recipient Email"
+                value={recipientEmail}
+                onchange={handleEmail}>
+            </lightning-input>
+
+            <br/>
+
+            <lightning-file-upload
+                label="Upload PDF"
+                name="uploadFile"
+                record-id={recordId}
+                accept=".pdf"
+                onuploadfinished={handleUploadFinished}>
+            </lightning-file-upload>
+
+            <template if:true={fileName}>
+                <br/>
+                <p>
+                    Uploaded File :
+                    <b>{fileName}</b>
+                </p>
+            </template>
+
+            <br/>
+
+            <lightning-button
+                label="Send To DocuSign"
+                variant="brand"
+                onclick={sendContract}>
+            </lightning-button>
+
+            <lightning-button
+                label="Check Status"
+                onclick={checkStatus}>
+            </lightning-button>
+            
+        </div>
+
+    </lightning-card>
+
+</template>
