@@ -1,0 +1,14 @@
+.train-header {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 0.5rem;
+}
+
+.train-name {
+    color: #032D60;
+    font-weight: 700;
+}
+
+.train-updated {
+    color: #706e6b;
+    margin-top: 0.15rem;
+}
