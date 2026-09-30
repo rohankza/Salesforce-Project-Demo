@@ -1,0 +1,406 @@
+<template>
+
+    <lightning-card>
+
+        <!-- ================================================= -->
+        <!-- HEADER -->
+        <!-- ================================================= -->
+
+        <div class="header">
+
+            <div class="title">
+
+                <h1>
+                    Team Member Overview
+                </h1>
+
+                <p>
+                    Employee project and task overview
+                </p>
+
+            </div>
+
+
+            <div class="search">
+
+                <lightning-input
+                    type="search"
+                    variant="label-hidden"
+                    placeholder="Search Employee..."
+                    value={searchKey}
+                    onchange={handleSearch}>
+                </lightning-input>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- TABLE -->
+        <!-- ================================================= -->
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Employee
+                        </th>
+
+                        <th>
+                            Project Name
+                        </th>
+
+                        <th>
+                            Team Lead
+                        </th>
+
+                        <th>
+                            Task Name
+                        </th>
+
+                        <th>
+                            Tasks
+                        </th>
+
+                        <th>
+                            Done
+                        </th>
+
+                        <th>
+                            Pending
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <template
+                        for:each={displayData}
+                        for:item="row">
+
+                        <tr key={row.id}>
+
+                            <!-- EMPLOYEE -->
+
+                            <td>
+
+                                <span
+                                    class="employee-name"
+                                    data-id={row.employeeId}
+                                    onclick={handleEmployeeClick}>
+
+                                    {row.employeeName}
+
+                                </span>
+
+                            </td>
+
+
+                            <!-- PROJECT -->
+
+                            <td>
+
+                                {row.projectName}
+
+                            </td>
+
+
+                            <!-- TEAM LEAD -->
+
+                            <td>
+
+                                {row.teamLead}
+
+                            </td>
+
+
+                            <!-- TASK -->
+
+                            <td>
+
+                                <span class="task-name">
+
+                                    {row.taskName}
+
+                                </span>
+
+                            </td>
+
+
+                            <!-- TOTAL TASKS -->
+
+                            <td>
+
+                                <span class="total">
+
+                                    {row.totalTasks}
+
+                                </span>
+
+                            </td>
+
+
+                            <!-- COMPLETED -->
+
+                            <td>
+
+                                <span class="done">
+
+                                    {row.completedTasks}
+
+                                </span>
+
+                            </td>
+
+
+                            <!-- PENDING -->
+
+                            <td>
+
+                                <span class="pending">
+
+                                    {row.pendingTasks}
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                    </template>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+    </lightning-card>
+
+
+    <!-- ===================================================== -->
+    <!-- EMPLOYEE DETAIL MODAL -->
+    <!-- ===================================================== -->
+
+    <template if:true={showEmployeeModal}>
+
+        <section
+            role="dialog"
+            tabindex="-1"
+            aria-modal="true"
+            class="modal-backdrop">
+
+
+            <div class="employee-modal">
+
+
+                <!-- MODAL HEADER -->
+
+                <div class="modal-header">
+
+                    <div>
+
+                        <h2>
+                            Team Member Detail
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        class="close-button"
+                        onclick={closeEmployeeModal}
+                        title="Close">
+
+                        ×
+
+                    </button>
+
+                </div>
+
+
+                <!-- EMPLOYEE INFORMATION -->
+
+                <div class="employee-info">
+
+
+                    <div class="employee-avatar">
+
+                        {selectedEmployee.Name}
+
+                    </div>
+
+
+                    <div class="employee-basic">
+
+                        <h3>
+                            {selectedEmployee.Name}
+                        </h3>
+
+                        <p>
+                            {selectedEmployee.Role__c}
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROJECT -->
+
+                <div class="info-section">
+
+                    <div class="info-label">
+                        Project Name
+                    </div>
+
+                    <div class="info-value">
+
+                        {selectedEmployee.Project__r.Name}
+
+                    </div>
+
+                </div>
+
+
+                <!-- ROLE -->
+
+                <div class="info-section">
+
+                    <div class="info-label">
+                        Role
+                    </div>
+
+                    <div class="info-value">
+
+                        {selectedEmployee.Role__c}
+
+                    </div>
+
+                </div>
+
+
+                <!-- TEAM LEAD -->
+
+                <div class="info-section">
+
+                    <div class="info-label">
+                        Team Lead
+                    </div>
+
+                    <div class="info-value">
+
+                        {selectedEmployee.Team_Lead__r.Name}
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================================= -->
+                <!-- TASK DETAILS -->
+                <!-- ================================================= -->
+
+                <div class="task-section">
+
+                    <h3>
+                        Task Detail
+                    </h3>
+
+
+                    <template
+                        if:true={selectedEmployeeTasks.length}>
+
+                        <template
+                            for:each={selectedEmployeeTasks}
+                            for:item="task">
+
+
+                            <div
+                                class="task-item"
+                                key={task.id}>
+
+
+                                <div class="task-main">
+
+                                    <span class="task-title">
+
+                                        {task.name}
+
+                                    </span>
+
+
+                                    <span
+                                        class="task-status">
+
+                                        {task.status}
+
+                                    </span>
+
+                                </div>
+
+
+                                <template
+                                    if:true={task.priority}>
+
+                                    <div class="task-meta">
+
+                                        Priority:
+                                        {task.priority}
+
+                                    </div>
+
+                                </template>
+
+
+                                <template
+                                    if:true={task.dueDate}>
+
+                                    <div class="task-meta">
+
+                                        Due Date:
+                                        {task.dueDate}
+
+                                    </div>
+
+                                </template>
+
+
+                            </div>
+
+                        </template>
+
+                    </template>
+
+
+                    <template
+                        if:false={selectedEmployeeTasks.length}>
+
+                        <div class="no-task">
+
+                            No task assigned
+
+                        </div>
+
+                    </template>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </template>
+
+</template>
