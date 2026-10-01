@@ -62,3 +62,54 @@ A 3-year Printer Maintenance Service subscription can have:
 * Year 3 → 5 printers
 
 MDQ allows each year to be configured independently.
+
+
+
+Updated Date: October 1, 2026
+
+Salesforce CPQ Guided Selling
+
+Guided Selling helps users select the right products by asking predefined questions. It uses Quote Processes, Process Inputs, Product Fields, and Conditions to filter products.
+
+Example: Mapping Service Type and Hardware Type to relevant products.
+
+Custom Action in QLE
+
+A Custom Action adds a customized button or operation in the Quote Line Editor (QLE). It can perform specific business logic on quote lines.
+
+Example: A Reset Discount button that resets discounts on selected quote lines.
+
+Salesforce CPQ Subscription Amendment
+
+Subscription Amendment allows users to modify an existing subscription contract. It creates an Amendment Opportunity linked to the existing contract.
+
+SBQQ__AmendedContract__c Permission Error
+
+I also troubleshot the SBQQ__AmendedContract__c permission error during the amendment process.
+
+This error is usually faced when the user does not have the required Field-Level Security (FLS) permission for the SBQQ__AmendedContract__c field.
+
+Why This Error Occurs
+The CPQ Amendment process needs to read/write the Amended Contract field.
+If the user's Profile or Permission Set does not provide the required field access, CPQ can throw a permission error.
+The field access needs to be verified on the relevant Contract object.
+Resolution
+
+Navigate to:
+
+Setup → Object Manager → Contract → Fields & Relationships → SBQQ__AmendedContract__c → Field-Level Security
+
+Then provide the required Read/Edit access through the appropriate Permission Set or Profile, based on the user's CPQ requirements.
+
+Key CPQ Topics Covered
+Guided Selling
+Quote Processes
+Process Inputs
+Product Fields
+Conditions
+Custom Actions
+Quote Line Editor (QLE)
+Subscription Amendment
+Amendment Opportunity
+Field-Level Security (FLS)
+SBQQ__AmendedContract__c troubleshooting
