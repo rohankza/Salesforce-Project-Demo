@@ -1,15 +1,19 @@
 # Salesforce CPQ – Learning Topics & Summary
 
+**Updated Date:** September 30, 2026
+
+---
+
 ## 1. Percent of Total (POT)
 
 **Summary:**
-Learned how Percent of Total pricing works in Salesforce CPQ, where the price of a product is calculated as a percentage of other applicable quote line values.
+Learned how Percent of Total pricing works in Salesforce CPQ, where the price of a product is calculated as a percentage of applicable quote line values.
 
 **Key Learning:**
 
 * Configured Percent of Total products.
 * Created and configured related POT records.
-* Understood how CPQ calculates the percentage-based price dynamically.
+* Understood how CPQ dynamically calculates percentage-based pricing.
 * Learned practical use cases for service, support, and additional charges.
 
 ---
@@ -22,9 +26,9 @@ Learned how Option Constraints control which products can be selected together w
 **Key Learning:**
 
 * Configured relationships between bundle options.
-* Understood how constraints can make options dependent on or incompatible with other options.
+* Understood dependent and incompatible option relationships.
 * Used constraints to prevent invalid product combinations.
-* Understood how constraints improve bundle configuration and guide users toward valid selections.
+* Learned how constraints guide users toward valid bundle configurations.
 
 ---
 
@@ -55,6 +59,7 @@ Learned how MDQ allows a subscription to be divided into multiple time-based seg
 * Understood practical use cases such as ramp-up and ramp-down subscriptions.
 
 **Example:**
+
 A 3-year Printer Maintenance Service subscription can have:
 
 * Year 1 → 2 printers
@@ -63,53 +68,91 @@ A 3-year Printer Maintenance Service subscription can have:
 
 MDQ allows each year to be configured independently.
 
+---
+**Updated Date:** october 1 , 2026
+## 5. Guided Selling
 
+**Summary:**
+Guided Selling helps users select the right products by asking predefined questions. It uses **Quote Processes, Process Inputs, Product Fields, and Conditions** to filter products.
 
-Updated Date: October 1, 2026
+**Example:**
+Mapping **Service Type** and **Hardware Type** to relevant products.
 
-Salesforce CPQ Guided Selling
+**Key Learning:**
 
-Guided Selling helps users select the right products by asking predefined questions. It uses Quote Processes, Process Inputs, Product Fields, and Conditions to filter products.
+* Understood the Guided Selling process.
+* Learned how predefined questions guide product selection.
+* Learned how Process Inputs and Conditions can filter products.
+* Understood how Guided Selling improves the product selection experience.
 
-Example: Mapping Service Type and Hardware Type to relevant products.
+---
 
-Custom Action in QLE
+## 6. Custom Action in QLE
 
-A Custom Action adds a customized button or operation in the Quote Line Editor (QLE). It can perform specific business logic on quote lines.
+**Summary:**
+A Custom Action adds a customized button or operation in the **Quote Line Editor (QLE)**. It can perform specific business logic on quote lines.
 
-Example: A Reset Discount button that resets discounts on selected quote lines.
+**Example:**
+A **Reset Discount** button that resets discounts on selected quote lines.
 
-Salesforce CPQ Subscription Amendment
+**Key Learning:**
 
-Subscription Amendment allows users to modify an existing subscription contract. It creates an Amendment Opportunity linked to the existing contract.
+* Understood the purpose of Custom Actions.
+* Learned how Custom Actions can be added to the QLE.
+* Understood how actions can perform specific business operations.
+* Learned a practical use case for resetting quote line discounts.
 
-SBQQ__AmendedContract__c Permission Error
+---
 
-I also troubleshot the SBQQ__AmendedContract__c permission error during the amendment process.
+## 7. Salesforce CPQ Subscription Amendment
 
-This error is usually faced when the user does not have the required Field-Level Security (FLS) permission for the SBQQ__AmendedContract__c field.
+**Summary:**
+Subscription Amendment allows users to modify an existing subscription contract. It creates an **Amendment Opportunity** linked to the existing contract.
 
-Why This Error Occurs
-The CPQ Amendment process needs to read/write the Amended Contract field.
-If the user's Profile or Permission Set does not provide the required field access, CPQ can throw a permission error.
-The field access needs to be verified on the relevant Contract object.
-Resolution
+**Key Learning:**
+
+* Understood the Subscription Amendment process.
+* Learned how an existing subscription can be modified.
+* Understood the relationship between the Contract and Amendment Opportunity.
+* Learned how amended subscription products are managed during the amendment process.
+
+---
+
+## 8. `SBQQ__AmendedContract__c` Permission Error
+
+**Issue:**
+During the Subscription Amendment process, I troubleshot the **`SBQQ__AmendedContract__c` permission error**.
+
+**Why This Error Occurs:**
+
+* The CPQ Amendment process requires access to the **Amended Contract** field.
+* If the user's Profile or Permission Set does not provide the required field access, CPQ can throw a permission error.
+* The field-level permissions should be verified for the relevant Contract object.
+
+**Resolution:**
 
 Navigate to:
 
-Setup → Object Manager → Contract → Fields & Relationships → SBQQ__AmendedContract__c → Field-Level Security
+**Setup → Object Manager → Contract → Fields & Relationships → `SBQQ__AmendedContract__c` → Field-Level Security**
 
-Then provide the required Read/Edit access through the appropriate Permission Set or Profile, based on the user's CPQ requirements.
+Then provide the required **Read/Edit** access through the appropriate **Permission Set or Profile**, based on the user's CPQ requirements.
 
-Key CPQ Topics Covered
-Guided Selling
-Quote Processes
-Process Inputs
-Product Fields
-Conditions
-Custom Actions
-Quote Line Editor (QLE)
-Subscription Amendment
-Amendment Opportunity
-Field-Level Security (FLS)
-SBQQ__AmendedContract__c troubleshooting
+---
+
+## Key CPQ Topics Covered
+
+* Percent of Total (POT)
+* Option Constraints
+* Twin Fields
+* Multi-Dimensional Quoting (MDQ)
+* Guided Selling
+* Quote Processes
+* Process Inputs
+* Product Fields
+* Conditions
+* Custom Actions
+* Quote Line Editor (QLE)
+* Subscription Amendment
+* Amendment Opportunity
+* Field-Level Security (FLS)
+* `SBQQ__AmendedContract__c` troubleshooting
