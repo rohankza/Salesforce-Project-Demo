@@ -1,5 +1,26 @@
 # Salesforce CPQ – Learning Topics & Summary
 
+**Updated Date:** October 7, 2026
+**Salesforce CPQ – Implemented Scenarios**
+I implemented the following scenarios using a Samsung 5G Phone Package bundle:
+**Contract Pricing Scenario**
+Implemented customer-specific contract pricing where eligible customers receive negotiated pricing for the Samsung 5G Phone.
+**Option Constraint Scenario**
+Implemented constraints between Premium Support and Standard Support to prevent incompatible options from being selected together.
+**Configuration Attribute Scenario**
+Implemented RAM, Storage, and Color as configurable attributes so customers can customize the phone during configuration.
+**Product Rule Scenario**
+Implemented product rules to validate and control product options based on selected RAM, Storage, and Color values.
+**Price Rule Scenario**
+Implemented dynamic pricing where selecting 16 GB RAM adds $500 to the base phone price.
+**Discount Schedule Scenario**
+Implemented quantity-based discounts where the discount percentage increases based on the quantity of phones purchased.
+**Bundle Configuration Scenario**
+Configured the Samsung 5G Phone bundle with 5G SIM Card, Premium Support, and Standard Support, including appropriate selection and dependency rules.
+
+
+
+
 **Updated Date:** September 30, 2026
 
 ---
