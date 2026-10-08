@@ -1,5 +1,50 @@
 # Salesforce CPQ – Learning Topics & Summary
 
+
+=======
+
+**Updated Date:** October 8, 2026
+1. Product Images on Quote Lines
+
+Implemented a feature to display Product Images directly on the Quote Line UI in Salesforce CPQ.
+Implementation
+Created the required Formula/URL fields to store and reference the Product Image URL.
+Stored Product Images in the Document object.
+Configured the images with public access so they can be loaded from the Quote Line UI.
+Configured the required Image URL and related fields.
+Displayed the respective Product Image against each Quote Line Product.
+Outcome
+
+Users can easily view the Product Image directly from the Quote Line UI.
+
+2. Bookmarked/Favorite Product & Product Code
+Implemented a Record-Triggered Flow to capture and display the Product Code of bookmarked/favorite products on Quote Lines.
+Implementation
+Created a Record-Triggered Flow to process bookmarked/favorite products.
+Retrieved the related Favorite Product and Quote Line records.
+Used a Loop to process the related Quote Lines.
+Retrieved the Product Code from the related Product.
+Assigned the Product Code to a custom Quote Line field.
+Stored and displayed the Product Code on the Quote Line UI.
+Outcome
+
+Users can easily identify the Product Code of bookmarked/favorite products directly on Quote Lines.
+
+3. Product Rules & Configuration Rules
+
+Implemented Product Rules and Configuration Rules to automate product selection based on Configuration Attribute values during bundle configuration.
+Implementation
+Created a Configuration Attribute to capture the user's selection.
+Created a Product Rule based on the selected Configuration Attribute value.
+Configured the Product Rule to automatically select/add the required Product Option.
+Created the required Configuration Rule.
+Linked the Configuration Rule with the Product Bundle.
+Configured the rule to execute during the Bundle Configuration process.
+Example
+
+When a user selects a specific Configuration Attribute value, the Product Rule automatically selects or adds the required product option within the bundle
+
+
 **Updated Date:** October 7, 2026
 **Salesforce CPQ – Implemented Scenarios**
 I implemented the following scenarios using a Samsung 5G Phone Package bundle:
@@ -21,6 +66,10 @@ Configured the Samsung 5G Phone bundle with 5G SIM Card, Premium Support, and St
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ea4ef3d (Update CPQ README)
 **Updated Date:** September 30, 2026
 
 ---
