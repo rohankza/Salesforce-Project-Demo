@@ -66,10 +66,6 @@ Configured the Samsung 5G Phone bundle with 5G SIM Card, Premium Support, and St
 
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ea4ef3d (Update CPQ README)
 **Updated Date:** September 30, 2026
 
 ---
