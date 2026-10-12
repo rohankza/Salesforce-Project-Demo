@@ -180,8 +180,10 @@ Example
 
 When a user selects a specific Configuration Attribute value, the Product Rule automatically selects or adds the required product option within the bundle
 
+===========================================
 
 **Updated Date:** October 7, 2026
+
 **Salesforce CPQ – Implemented Scenarios**
 I implemented the following scenarios using a Samsung 5G Phone Package bundle:
 **Contract Pricing Scenario**
