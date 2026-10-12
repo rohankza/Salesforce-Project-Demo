@@ -1,9 +1,144 @@
+
 # Salesforce CPQ – Learning Topics & Summary
 
+**Updated Date:** October 12, 2026
 
-=======
 
-**Updated Date:** October 8, 2026
+##  Salesforce Revenue Cloud: Create and Configure a Bundle
+
+### Business Scenario
+Create a parent bundle product with child products and make it available in Browse Catalogs.
+
+### Implementation Steps
+1. Open the Salesforce Revenue Cloud application.
+2. Navigate to the Products or Product Catalog management area.
+3. Create the parent bundle product.
+4. Create the child products that will be included in the bundle.
+5. Open the parent product.
+6. Navigate to the **Product Structure** tab.
+7. Add the required child products to the parent product structure.
+8. Configure the appropriate child-product relationships and required settings.
+9. Save the product structure.
+10. Navigate to the Catalogs area.
+11. Open the relevant catalog or create a new catalog.
+12. Create or select the appropriate category.
+13. Associate the parent bundle product with the catalog category.
+14. Ensure that the product and catalog configuration meet the requirements for publication and availability.
+15. Open **Browse Catalogs**.
+16. Locate the parent bundle product and verify that it appears in the catalog.
+17. Open the bundle and verify that its child products are available for configuration.
+
+
+## 1. Salesforce CPQ: Bundle Product Discount
+
+### Business Scenario
+A Dell laptop bundle contains child products such as a keyboard and mouse.
+
+- When the keyboard is added to the Dell laptop bundle, apply a 50% discount.
+- When the keyboard is sold as a standalone product, charge the full price.
+
+### Implementation Steps
+
+1. Navigate to the Salesforce App Launcher and open **Salesforce CPQ**.
+2. Open the Products tab and create or select the Dell laptop parent product.
+3. Create the keyboard and mouse as child products.
+4. Open the Dell laptop product and navigate to the **Related** tab.
+5. Create Product Options for the keyboard and mouse.
+6. Open the keyboard Product Option record.
+7. Enable the **Discounted** checkbox.
+8. Set the discount to 50% using the applicable bundle pricing configuration.
+9. Save the Product Option.
+10. Create a Quote and add the Dell laptop bundle.
+11. Configure the bundle and verify that the keyboard receives the 50% discount.
+12. Add the keyboard separately to another Quote and verify that its standalone price remains unchanged.
+
+### Expected Result
+
+- Keyboard inside the bundle: 50% discount.
+- Keyboard sold separately: Full standalone price.
+
+---
+
+## 2. Salesforce CPQ: Price Rule Based on Quantity
+
+### Business Scenario
+When the quantity of a Quote Line Item exceeds 2, automatically apply a 10% discount.
+
+### Implementation Steps
+
+1. Navigate to **Setup → Object Manager → Price Rule** or open the Price Rules tab, depending on your configuration.
+2. Create a new Price Rule.
+3. Enter the Price Rule Name: `Discount Based on Quantity`.
+4. Set **Evaluation Scope** to `Calculator`.
+5. Set the appropriate Calculator Evaluation Event, such as `On Calculate`.
+6. Create a Price Condition:
+   - Tested Object: Quote 
+   - Tested Field: SBQQ__LineItemCount__c
+   - Operator: Greater Than
+   - Filter Value: `2`
+7. Create a Price Action:
+   - Target Object: Quote Line
+   - Target Field: `Discount (%)` or the appropriate discount field for your pricing setup.
+   - Value: `10`, according to the target field's expected format.
+8. Save and activate the Price Rule.
+9. Create a Quote and add a product with a quantity greater than 2.
+10. Click **Calculate** and verify the resulting discount.
+
+
+**Note:** `SBQQ__AdditionalDiscount__c` represents the Additional Discount field. Confirm the field's availability and supported use in your CPQ configuration before using it as a Price Action target.
+
+---
+
+## 3. Salesforce CPQ: Price Rule Based on Product Code
+
+### Business Scenario
+Apply a 10% discount when the Product Code is `Dell-01`.
+
+### Implementation Steps
+
+1. Create a new Price Rule named `Discount Based on Product Code`.
+2. Set Evaluation Scope to `Calculator`.
+3. Set the appropriate Calculator Evaluation Event, such as `On Calculate`.
+4. Create a Price Condition:
+   - Tested Object: Quote Line
+   - Tested Field: Product Code (`SBQQ__ProductCode__c`, if available in your configuration)
+   - Operator: Equals
+   - Filter Value: `Dell-01`
+5. Create a Price Action:
+   - Target Object: Quote Line
+   - Target Field: Discount (AMT).
+   - Value: `10`,
+6. Save and activate the Price Rule.
+7. Create a Quote and add the Dell product with Product Code `Dell-01`.
+8. Click **Calculate**.
+9. Verify that the 10% discount is applied.
+10. Add another product with a different Product Code and confirm that the rule does not apply.
+
+---
+
+## 4. Salesforce CPQ: Custom Action on Quote Lines
+
+### Business Scenario
+Display a custom action button on individual Quote Lines for specific products.
+
+### Implementation Steps
+
+1. Open the Salesforce CPQ **Custom Actions** configuration.
+2. Create a new Custom Action.
+3. Enter the action name and label.
+4. Configure the action's display settings:
+   - **Location:** `Line`
+   - **Page:** `Quote Line`
+5. Configure the action's behavior according to the intended functionality.
+6. Save the Custom Action.
+7. Open the Quote Line Editor for a Quote.
+8. Add the relevant products.
+9. Verify that the action appears at the Quote Line level.
+10. Test the action on the intended products and confirm that it performs the expected operation.
+
+=====================================================================================================
+
+
 1. Product Images on Quote Lines
 
 Implemented a feature to display Product Images directly on the Quote Line UI in Salesforce CPQ.
