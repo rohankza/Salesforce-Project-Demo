@@ -136,7 +136,8 @@ Display a custom action button on individual Quote Lines for specific products.
 9. Verify that the action appears at the Quote Line level.
 10. Test the action on the intended products and confirm that it performs the expected operation.
 
-=====================================================================================================
+=============================================================
+
 **Updated Date:** October 8, 2026
 
 1. Product Images on Quote Lines
