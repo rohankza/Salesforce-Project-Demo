@@ -4,7 +4,8 @@
 **Updated Date:** October 13, 2026
 1. Attribute Picklist and Product Classification
 
-Objective
+### Objective
+
 Display different product attributes, such as RAM and Color, in Browse Catalogs for product selection and configuration.
 
 Implementation Steps
@@ -14,12 +15,12 @@ Created a Product Classification.
 Associated the Attribute Picklist with the Product Classification.
 Configured the product attributes to support product selection in Browse Catalogs.
 
-Outcome
+### Outcome
 Configured product attributes to support product selection and display in Browse Catalogs.
 
-Revenue Cloud – Product Setup to Billing Schedule
+### Revenue Cloud – Product Setup to Billing Schedule
 
-Objective
+### Objective
 Configure a product in Salesforce Revenue Cloud and process the order lifecycle, including Order Activation, Contract creation, Asset creation, and Billing Schedule troubleshooting.
 
 Implementation Steps
@@ -35,7 +36,7 @@ Created and verified the associated Asset.
 Activated the Order to proceed with the order lifecycle.
 Worked on Billing Schedule creation and troubleshot the issues encountered during the process.
 
-Outcome
+### Outcome
 Configured the product and its selling details, created the Order, Contract, and Asset, activated the Order, and worked on Billing Schedule troubleshooting as part of the Salesforce Revenue Cloud order-to-billing process.
 
 
