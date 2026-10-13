@@ -1,5 +1,5 @@
 
-# Salesforce Revenue Cloud – Learning Topics & Summary
+# Salesforce Revenue Cloud & CPQ – Learning Topics & Summary
 
 **Updated Date:** October 13, 2026
 1. Attribute Picklist and Product Classification
