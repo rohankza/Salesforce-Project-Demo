@@ -1,5 +1,43 @@
 
-# Salesforce CPQ – Learning Topics & Summary
+# Salesforce Revenue Cloud – Learning Topics & Summary
+
+**Updated Date:** October 13, 2026
+1. Attribute Picklist and Product Classification
+
+Objective
+Display different product attributes, such as RAM and Color, in Browse Catalogs for product selection and configuration.
+
+Implementation Steps
+Created an Attribute Picklist.
+Added the required picklist values, including RAM and Color.
+Created a Product Classification.
+Associated the Attribute Picklist with the Product Classification.
+Configured the product attributes to support product selection in Browse Catalogs.
+
+Outcome
+Configured product attributes to support product selection and display in Browse Catalogs.
+
+Revenue Cloud – Product Setup to Billing Schedule
+
+Objective
+Configure a product in Salesforce Revenue Cloud and process the order lifecycle, including Order Activation, Contract creation, Asset creation, and Billing Schedule troubleshooting.
+
+Implementation Steps
+Created a new product in Salesforce Revenue Cloud.
+Configured the Product Selling Model.
+Created a Price Book and configured the product pricing.
+Assigned the product to the Product Catalog and appropriate Product Category.
+Created an Order for the configured product.
+Started the Contract creation process and encountered an issue with the Product Subtotal.
+Manually populated the required Product Subtotal value to proceed with Contract creation.
+Successfully created the Contract.
+Created and verified the associated Asset.
+Activated the Order to proceed with the order lifecycle.
+Worked on Billing Schedule creation and troubleshot the issues encountered during the process.
+
+Outcome
+Configured the product and its selling details, created the Order, Contract, and Asset, activated the Order, and worked on Billing Schedule troubleshooting as part of the Salesforce Revenue Cloud order-to-billing process.
+
 
 **Updated Date:** October 12, 2026
 
