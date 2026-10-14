@@ -1,6 +1,73 @@
 
 # Salesforce Revenue Cloud & CPQ – Learning Topics & Summary
 
+**Updated Date:** October 14, 2026
+
+## 1. Constraint Model and Configuration Rules
+
+### Objective
+Implemented product configuration constraints to control the available attribute values based on selected product attributes.
+
+### Implementation Steps
+1. Enabled **Set Up Configuration Rules and Constraints with Constraints Engine**.
+2. Created a configuration rule for the Laptop product.
+3. Configured a condition to check whether the product attribute equals `2K Built-in Display`.
+4. Applied constraints to hide the `24 inch` and `16 inch` size values when the specified display attribute was selected.
+5. Tested the configuration behavior using **Browse Catalog**.
+
+### Outcome
+Implemented attribute-based constraints to dynamically control available product configuration options and prevent users from selecting incompatible values.
+
+## 2. Context Definition and Decision Tables
+
+### Objective
+Learned how Salesforce Revenue Cloud uses Context Definitions and Decision Tables to provide data for business rules and pricing calculations.
+
+### Implementation and Learning
+1. Explored Context Definitions and their role in defining the data available to pricing and configuration logic.
+2. Learned how to access source object fields and related object values through the context.
+3. Explored Decision Tables to evaluate input conditions and return the corresponding output values.
+4. Studied how input and output variables are used in the pricing process.
+5. Learned how pricing-related values can be passed to and consumed by the pricing engine.
+
+### Outcome
+Gained an understanding of the data flow from source records through Context Definitions and Decision Tables to pricing calculations.
+
+## 3. Ramp Deal and Free Trial Configuration
+
+### Objective
+Worked on configuring a subscription-based Ramp Deal that includes a free trial period.
+
+### Implementation
+1. Worked with a subscription product having a total term of 36 months.
+2. Configured a one-month free trial for the specified product.
+3. Explored how the free-trial period fits into the subscription term and the overall pricing structure.
+
+### Example
+- **Subscription Term:** 36 months
+- **Free Trial:** 1 month
+- **Product:** Selected subscription product
+
+### Outcome
+Gained practical knowledge of configuring a free-trial period within a longer subscription-based commercial agreement.
+
+## 4. Pricing Procedure Configuration
+
+### Objective
+Started configuring a Pricing Procedure to calculate pricing at the Quote Line level in Salesforce Revenue Cloud.
+
+### Implementation Steps
+1. Created and configured a Pricing Procedure.
+2. Added the required Pricing Element for the pricing calculation.
+3. Configured the List Price Element Assignment.
+4. Mapped the pricing calculation to the **Net Unit Price** field on the Quote Line.
+5. Started working on volume discount configuration to apply discounts based on product quantity.
+
+### Pricing Flow
+
+`Pricing Procedure → Pricing Element → List Price Element Assignment → Net Unit Price`
+
+
 **Updated Date:** October 13, 2026
 1. Attribute Picklist and Product Classification
 
