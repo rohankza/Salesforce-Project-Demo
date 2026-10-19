@@ -13,7 +13,8 @@ Why use it? To automate contract creation and transfer the required data from Qu
 3. Configure Hydration and Persistence mappings.
 4. Create a Quote linked to an Opportunity and Account.
 5. Click Create Contract and verify the Contract.
-2. Contract Pricing
+
+### 2. Contract Pricing
 Definition: Allows businesses to define negotiated prices or discounts for specific products or product categories under a Contract.
 
 Why use it? To provide customers with agreed pricing for the contract period, regardless of standard pricing changes, where configured.
