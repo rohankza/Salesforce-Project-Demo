@@ -1,5 +1,83 @@
 
 # Salesforce Revenue Cloud & CPQ – Learning Topics & Summary
+**Updated Date:** October 19, 2026
+
+#### 1. Contract Creation from Quote
+### Definition: Allows users to create a Contract directly from a Quote using Contract Use Case Mapping.
+
+Why use it? To automate contract creation and transfer the required data from Quote to Contract.
+
+### Steps:
+1. Open Contract Use Case Mapping.
+2. Create mapping: Quote → Contract.
+3. Configure Hydration and Persistence mappings.
+4. Create a Quote linked to an Opportunity and Account.
+5. Click Create Contract and verify the Contract.
+2. Contract Pricing
+Definition: Allows businesses to define negotiated prices or discounts for specific products or product categories under a Contract.
+
+Why use it? To provide customers with agreed pricing for the contract period, regardless of standard pricing changes, where configured.
+
+### Steps:
+1. Open the Contract and set the Start Date, Term, and Price Book.
+2. Go to Related → Contract Item Pricing → New.
+3. Select Product or Category.
+4. Configure a percentage discount, amount discount, or price override.
+5. Activate the Contract through the required stages.
+6. Refresh relevant Decision Tables if required.
+7. Add the product to the Quote and verify the Net Unit Price.
+### Example:
+Standard price = ₹1,000; contract price override = ₹100. The eligible quote line should use ₹100 as its Net Unit Price.
+
+### Product Configurator Flow – Salesforce Revenue Cloud
+### Definition: Product Configurator Flow is a Screen Flow that controls how the product configuration screen appears in Revenue Cloud.
+
+Why use it? To customize the configurator UI, such as changing attribute layouts from one column to two columns, without modifying the standard flow.
+### Steps to configure
+1. Clone the standard flow: Go to Setup → Flows → search for Default Product Configurator Flow → Save As New Flow.
+2. Customize the screen: Open the cloned flow and select the Product Configurator Product Attributes component. Change the Display Column value from 1 to 2.
+3. Activate the flow: Save and activate the custom flow.
+4. Create a flow configuration: Open Product Configurator Configuration Flows from App Launcher and create a record using the custom flow's API name. Set Status to Active and configure Default as required.
+5. Assign the flow: Under Related, create a Product Configuration Flow Assignment record.
+6. Select the scope: Choose a specific Product (e.g., Laptop) or a Product Classification to apply the customization to multiple products.
+7. Test: Open Browse Catalog, select the product, and verify the updated configurator layout.
+Example: Laptop attributes display in two columns, while other products retain the standard one-column layout if the assignment applies only to Laptop.
+
+### Important: Always clone the standard flow instead of modifying it directly.
+
+
+### Salesforce Revenue Cloud: Product Discovery & Transaction Line Editor
+### 1. Product Discovery
+Definition: Product Discovery is a tool used to search, browse, filter, and select products from a catalog to add them to a Quote.
+
+Why use it? To help users quickly find the required products and add them to a Quote.
+
+Steps:
+1. Open the Quote.
+2. Click Browse Catalog.
+3. Select the Catalog and Category.
+4. Search, filter, or select products.
+5. Click Add Selection to Quote.
+6. Review the selected products and save the Quote.
+
+### 2. Transaction Line Editor (TLE)
+Definition: Transaction Line Editor is the interface where users view, manage, and edit the products added to a Quote.
+
+Why use it? To update product quantities, review pricing, apply adjustments, organize products, and recalculate prices.
+
+### Steps and key features:
+1. Add products to the Quote through Product Discovery.
+2. Open the Quote Line Editor.
+3. Inline Editing: Update eligible fields such as quantity.
+4. Instant Pricing: Recalculate pricing immediately when supported and enabled.
+5. Freeze Columns: Keep important columns visible while scrolling.
+6. Add Group: Group quote lines manually.
+7. Group By: Organize lines by fields such as Selling Model Type.
+8. Reprice All: Refresh prices and run applicable validations.
+9. Bulk Delete: Remove multiple selected quote lines.
+10. Quote Summary: Review total price, tax, one-time total, and recurring total.
+### Example: 
+A user adds an HP Desktop through Product Discovery, then uses TLE to change its quantity from 1 to 2 and recalculate the total price.
 
 **Updated Date:** October 14, 2026
 
