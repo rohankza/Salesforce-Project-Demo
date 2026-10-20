@@ -1,5 +1,50 @@
 
 # Salesforce Revenue Cloud & CPQ – Learning Topics & Summary
+
+**Updated Date:** October 20, 2026
+#### 1. Bundle-Based Pricing from Price Adjustment Schedule
+
+Learned how to configure Bundle-Based Pricing in Salesforce Revenue Cloud to apply special pricing to child products when they are sold as part of a bundle.
+
+Scenario
+Parent Bundle: Tesla Model X
+Child Product: Wheel
+
+Requirement: Apply a 50% discount to the Wheel when sold within the Tesla Model X bundle, while keeping its full price when sold as a standalone product.
+
+### Implementation
+Created the bundle product Tesla Model X and its child product Wheel.
+Configured the Bundle-Based Adjustment.
+Defined the Root Bundle, Parent Product, and Child Product.
+Selected the adjustment type and configured the adjustment value.
+Tested the pricing behavior for bundle and standalone sales.
+Reviewed the Pricing Procedure and Pricing Settings when the adjustment did not work as expected.
+
+### 2. Attribute-Based Pricing
+
+Learned how Attribute-Based Pricing can change product prices based on selected attribute values.
+
+### Key Learning
+Configure product attributes that affect pricing.
+Set up Attribute-Based Adjustments.
+Apply additional charges when a specific attribute value is selected.
+Verify attribute-based price changes during product configuration.
+
+### 3. Contract Pricing
+
+Learned how Contract Pricing is used to provide customer-specific negotiated prices and discounts during an agreed contract period.
+
+### Implementation
+
+Created a contract associated with an Account and Opportunity.
+Configured Contract Item Pricing for specific products.
+Set negotiated prices or discounts and applicable contract dates.
+Activated the contract according to the configured lifecycle.
+Linked the contract to a quote.
+Verified whether the negotiated contract price was applied instead of the standard product price.
+
+
+
 **Updated Date:** October 19, 2026
 
 #### 1. Contract Creation from Quote
