@@ -33,6 +33,24 @@ Calls an external train-status API from Apex and displays train details in an LW
 * LWC
 * REST API
 
+### 4. Salesforce SOQL Smart Assistant
+
+**Branch:** `feature/SOQL-Smart-Assistant`
+
+An AI-powered Salesforce tool that converts user requirements written in simple English into SOQL queries using Gemini AI.
+
+**Key Components:**
+- `soqlAssistant` (LWC)
+- `SoqlQueryController` (Apex)
+- `SoqlGeneratorController` (Apex)
+
+**Technologies:**
+- Lightning Web Components (LWC)
+- Apex
+- SOQL
+- Gemini AI API
+- Salesforce Named Credentials
+
 ## Setup
 ### 1. Clone Repository
 ```bash

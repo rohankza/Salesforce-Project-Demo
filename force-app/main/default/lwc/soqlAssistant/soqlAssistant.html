@@ -1,0 +1,52 @@
+<template>
+    <lightning-card title="SOQL Smart Assistant" icon-name="standard:database">
+        <template lwc:if={successMessage}>
+            <div class="slds-text-color_success slds-m-top_small">
+                {successMessage}
+            </div>
+        </template>
+        <div class="slds-m-bottom_medium">
+            <lightning-textarea label="Describe your requirement " value={requirement}
+                onchange={handleRequirementChange} placeholder="Show all accounts created in the last 30 days">
+            </lightning-textarea>
+
+            <div class="slds-m-top_small">
+                <lightning-button label="Generate SOQL" variant="brand" onclick={handleGenerateSoql}
+                    disabled={isGenerating}>
+                </lightning-button>
+            </div>
+        </div>
+
+
+        <div class="slds-p-around_medium">
+            <lightning-textarea label="Enter SOQL Query" value={query} onchange={handleQueryChange}
+                placeholder="SELECT Id, Name FROM Account LIMIT 10">
+            </lightning-textarea>
+
+            <div class="slds-m-top_medium">
+                <lightning-button label="Run Query" variant="brand" onclick={handleRunQuery} disabled={isLoading}>
+                </lightning-button>
+            </div>
+
+            <template lwc:if={errorMessage}>
+                <div class="slds-text-color_error slds-m-top_medium">
+                    {errorMessage}
+                </div>
+            </template>
+
+            <template lwc:if={hasResults}>
+                <div class="slds-m-top_medium">
+                    <p>Records returned: {totalRows}</p>
+
+                    <lightning-datatable key-field="rowId" data={tableRows} columns={tableColumns} hide-checkbox-column>
+                    </lightning-datatable>
+                </div>
+            </template>
+
+            <template lwc:if={isLoading}>
+                <lightning-spinner alternative-text="Running query">
+                </lightning-spinner>
+            </template>
+        </div>
+    </lightning-card>
+</template>
