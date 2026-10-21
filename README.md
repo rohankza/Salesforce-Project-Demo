@@ -4,36 +4,8 @@ Salesforce projects covering Apex, LWC, integrations, Salesforce Files, and Git/
 
 ## Projects
 
-### 1. PDF Generator / Viewer
-**Branch:** `feature/PDFGenerator`
-Retrieves Salesforce Files related to an Account and displays PDF files using Apex and LWC.
-**Key Components:**
-* `AccountFileViewerController`
-* `pdfViewer`
-* ContentDocument
-* ContentVersion
-* ContentDocumentLink
 
-### 2. DocuSign Integration
-**Branch:** `feature/rs/docusign`
-Demonstrates Salesforce integration with DocuSign for sending documents, tracking envelope status, and storing signed documents in Salesforce.
-**Technologies:**
-* Apex
-* LWC
-* Named Credential
-* External Credential
-* DocuSign API
-
-### 3. Train Live Status
-**Branch:** `feature/train-Live-Status`
-Calls an external train-status API from Apex and displays train details in an LWC.
-**Technologies:**
-* Apex HTTP Callout
-* JSON
-* LWC
-* REST API
-
-### 4. Salesforce SOQL Smart Assistant
+### 1. Salesforce SOQL Smart Assistant
 
 **Branch:** `feature/SOQL-Smart-Assistant`
 
