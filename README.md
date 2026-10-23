@@ -1,5 +1,252 @@
 
 # Salesforce Revenue Cloud & CPQ – Learning Topics & Summary
+**Updated Date:** October 23, 2026
+
+# Salesforce Revenue Cloud: Order Activation to Invoice Generation
+
+## Overview
+
+This document explains the end-to-end billing process in Salesforce Revenue Cloud, starting from Order Activation and ending with Invoice Generation and Invoice Posting.
+
+## End-to-End Process Flow
+
+```text
+Order
+  |
+  v
+Order Activation
+  |
+  v
+Billing Schedule Groups
+  |
+  v
+Billing Schedules
+  |
+  v
+Billing Batch Scheduler
+  |
+  v
+Invoice Batch Run
+  |
+  v
+Invoice
+  |
+  v
+Invoice Lines
+  |
+  v
+Invoice Posting
+```
+
+## 1. Order Activation
+
+### Definition
+
+Order Activation confirms the order and allows configured downstream processes, such as billing schedule generation, to proceed.
+
+### Steps
+
+1. Open the Salesforce App Launcher.
+2. Search for and open **Orders**.
+3. Open the required Order.
+4. Verify the Order Products, quantities, prices, dates, and billing configuration.
+5. Verify the required Legal Entity, Billing Treatment, Tax Treatment, and Payment Terms, where applicable.
+6. Click **Activate**.
+
+### Expected Result
+
+The Order becomes active. Billing Schedule Groups and Billing Schedules are generated when the required billing configuration and automation are in place.
+
+## 2. Billing Schedule Groups
+
+### Definition
+
+A Billing Schedule Group groups related billing schedules associated with order-related billing transactions.
+
+### Steps
+
+1. Open the App Launcher.
+2. Search for **Billing Schedule Groups**.
+3. Open the relevant group.
+4. Verify its relationship with the Order and associated Billing Schedules.
+
+### Purpose
+
+- Organize related billing schedules.
+- Review billing information grouped for processing.
+- Help verify the billing records generated from an Order.
+
+## 3. Billing Schedules
+
+### Definition
+
+A Billing Schedule represents a scheduled charge associated with an order product and identifies billing timing and amount information.
+
+### Steps
+
+1. Search for **Billing Schedules** in the App Launcher.
+2. Open the schedule related to the Order.
+3. Verify the billing amount and billing date.
+4. Check the next billing date and status, if available.
+5. Confirm that the schedule is eligible for invoice generation.
+
+### Purpose
+
+- Track when charges become eligible for invoicing.
+- Track scheduled billing amounts.
+- Support recurring and scheduled billing processes.
+
+### Example
+
+| Field                | Example Value               |
+| -------------------- | --------------------------- |
+| Product              | Printer Maintenance Service |
+| Monthly Charge       | ₹1,000                      |
+| Billing Period       | Monthly                     |
+| Subscription Term    | 12 Months                   |
+| Total Contract Value | ₹12,000                     |
+
+*The example assumes one unit billed at ₹1,000 per month for 12 months.*
+
+## 4. Billing Batch Scheduler
+
+### Definition
+
+A Billing Batch Scheduler is used to configure and initiate scheduled billing-related batch processing, including invoice generation through an Invoice Scheduler.
+
+### Steps
+
+1. Open the App Launcher.
+2. Search for **Billing Batch Schedulers**.
+3. Open an existing scheduler or create a new one.
+4. Click **New Invoice Scheduler**, if creating a new scheduler.
+5. Enter the scheduler name.
+6. Configure the start date and other required scheduling fields.
+7. Set the target date and invoice date, when requested.
+8. Configure the Invoice Billing Criteria.
+9. Select **Start Run Now** for a one-time run, if available and appropriate.
+10. Keep automatic invoice posting disabled during initial testing.
+11. Save or schedule the configuration.
+
+### Purpose
+
+- Configure invoice processing.
+- Define which billing schedules should be considered.
+- Initiate invoice generation according to the configured criteria.
+
+## 5. Invoice Batch Run
+
+### Definition
+
+An Invoice Batch Run records an execution of the invoice generation process.
+
+### Steps
+
+1. Open the required Billing Batch Scheduler.
+2. Navigate to the **Related** tab.
+3. Open **Invoice Batch Runs**.
+4. Open the latest batch run.
+5. Check its status and processing details.
+6. Review error logs if the run fails.
+
+### Purpose
+
+- Monitor invoice generation.
+- Review batch processing status.
+- Investigate errors and confirm whether invoices were generated.
+
+### Important
+
+A `Completed` status indicates that the batch run completed. It does not, by itself, prove that an invoice was generated. Verify the invoice count and related invoice records.
+
+## 6. Invoice Generation
+
+### Definition
+
+An Invoice is a financial document that records the amount payable by a customer for products or services.
+
+### Steps
+
+1. Open the completed Invoice Batch Run.
+2. Review its generated invoice records, if available.
+3. Alternatively, search for **Invoices** in the App Launcher.
+4. Open the invoice associated with the relevant customer or transaction.
+5. Verify the invoice number, account, invoice date, due date, subtotal, tax, and total amount.
+6. Confirm the invoice status.
+
+### Purpose
+
+- Record the customer's payable amount.
+- Track invoice dates and payment due dates.
+- Support the billing and accounts receivable process.
+
+## 7. Invoice Lines
+
+### Definition
+
+An Invoice Line represents an individual product, service, or charge included in an invoice.
+
+### Steps
+
+1. Open the generated Invoice.
+2. Navigate to the **Related** tab.
+3. Open **Invoice Lines**.
+4. Verify the product or charge name.
+5. Check quantity, unit price, line amount, and tax information, where applicable.
+6. Confirm that the line amounts reconcile with the invoice total.
+
+### Example
+
+| Invoice Line        |      Amount |
+| ------------------- | ----------: |
+| Printer Maintenance |     ₹10,000 |
+| Premium Support     |      ₹2,000 |
+| Subtotal            |     ₹12,000 |
+| Example Tax at 18%  |      ₹2,160 |
+| **Total Invoice**   | **₹14,160** |
+
+*Amounts and tax rates are illustrative only.*
+
+## 8. Invoice Posting
+
+### Definition
+
+Invoice Posting moves an eligible invoice from a draft or unposted state into the posted state according to the organization's billing configuration.
+
+### Steps
+
+1. Open the generated Invoice.
+2. Verify the customer, invoice lines, amounts, and dates.
+3. Confirm that the invoice is eligible for posting.
+4. Use the available **Post** action or the configured posting process.
+5. Refresh the record.
+6. Verify the final invoice status.
+
+### Purpose
+
+- Finalize the invoice in the billing process.
+- Support downstream payment and accounting workflows.
+- Maintain a record of posted customer charges.
+
+**Note:** If the scheduler is configured to post invoices automatically, the invoice may already be posted during batch processing.
+
+## 9. Troubleshooting
+
+| Issue                                               | Checks                                                                                 |
+| --------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Billing Schedules are not created                   | Verify Order activation and the configured Order-to-Billing-Schedule automation.       |
+| Billing Schedule exists but no invoice is generated | Verify schedule eligibility, billing dates, target date, and Invoice Billing Criteria. |
+| Invoice Batch Run fails                             | Review the batch run details and associated error logs.                                |
+| Batch run completes but no invoice exists           | Check the generated invoice count and confirm that eligible schedules were processed.  |
+| Invoice amount is incorrect                         | Verify Order Product pricing, Billing Schedule amounts, and tax configuration.         |
+| Invoice remains in Draft                            | Verify the invoice and use the configured posting action if appropriate.               |
+| Scheduler is inactive                               | Check scheduler status and configuration before initiating another run.                |
+
+## Summary
+
+The Salesforce Revenue Cloud billing process starts with Order Activation and continues through Billing Schedule generation, Invoice Batch processing, Invoice creation, Invoice Line verification, and Invoice Posting.
+
+Each stage should be verified before proceeding to the next. The exact fields, actions, and automation depend on the Salesforce Revenue Cloud configuration and enabled features in the organization.
 
 **Updated Date:** October 20, 2026
 #### 1. Bundle-Based Pricing from Price Adjustment Schedule
