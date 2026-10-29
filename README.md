@@ -1,5 +1,36 @@
 
 # Salesforce Revenue Cloud & CPQ – Learning Topics & Summary
+**Updated Date:** October 28, 2026
+### 1-Product Catalog Configuration and Troubleshooting
+### Objective
+Troubleshoot products not appearing in Browse Catalog in Salesforce Revenue Cloud Advanced.
+### Issue
+Newly configured products were not visible in the Browse Catalog screen, even though the products had been created.
+Steps Performed
+Verified that the product was active and correctly configured.
+Checked the product's catalog and category assignments.
+Verified the relevant selling model, availability settings, and pricing configuration.
+Navigated to Product Catalog Management → Index and Search Configuration.
+Opened the index management section and initiated a Partial Index Rebuild.
+Monitored the rebuild status in Rebuild History.
+Reopened the Quote and Transaction Line Editor.
+Tested Browse Catalog to verify product visibility.
+  
+
+### 2-Subscription and Non-Subscription Products
+
+### Objective
+Understand how subscription and non-subscription products work in Salesforce Revenue Cloud Advanced and how their Asset records are created and managed.
+Steps Performed
+Created and configured subscription and non-subscription products.
+Configured the required product details, selling models, and pricing.
+Added products to the appropriate catalog and category.
+Created a Quote and added products through Browse Catalog.
+Created an Order from the Quote and activated the Order.
+Verified the generated Asset records under the Account's Related tab or the Assets list.
+Checked product details, quantities, status, and applicable subscription or purchase information.
+
+
 **Updated Date:** October 23, 2026
 
 # Salesforce Revenue Cloud: Order Activation to Invoice Generation
