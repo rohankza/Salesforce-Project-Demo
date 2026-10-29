@@ -1,5 +1,24 @@
 
 # Salesforce Revenue Cloud & CPQ – Learning Topics & Summary
+**Updated Date:** October 29, 2026
+1. Revenue Cloud Advanced (RCA)
+Provides capabilities for product catalog management, pricing, quoting, and order processing.
+
+2. Revenue Lifecycle Management (RLM)
+Manages the customer revenue lifecycle, including contracts, amendments, subscription renewals, and cancellations.
+
+3. Salesforce Billing
+Handles billing schedules, invoice generation, credit memos, and related billing processes.
+
+4. Product Bundles
+Combines multiple products or services into a single package with required components, optional products, and configuration rules.
+
+5. Transaction Management
+Manages business transactions such as quotes, orders, and related commercial records throughout the sales process.
+
+6. Payment Systems Integration
+Connects Salesforce with external payment gateways to process payments and track transaction statuses.
+
 **Updated Date:** October 28, 2026
 ### 1-Product Catalog Configuration and Troubleshooting
 ### Objective
