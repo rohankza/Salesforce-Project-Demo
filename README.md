@@ -7,14 +7,14 @@ Troubleshoot products not appearing in Browse Catalog in Salesforce Revenue Clou
 ### Issue
 Newly configured products were not visible in the Browse Catalog screen, even though the products had been created.
 Steps Performed
-Verified that the product was active and correctly configured.
-Checked the product's catalog and category assignments.
-Verified the relevant selling model, availability settings, and pricing configuration.
-Navigated to Product Catalog Management → Index and Search Configuration.
-Opened the index management section and initiated a Partial Index Rebuild.
-Monitored the rebuild status in Rebuild History.
-Reopened the Quote and Transaction Line Editor.
-Tested Browse Catalog to verify product visibility.
+1. Verified that the product was active and correctly configured.
+2. Checked the product's catalog and category assignments.
+3. Verified the relevant selling model, availability settings, and pricing configuration.
+4. Navigated to Product Catalog Management → Index and Search Configuration.
+5. Opened the index management section and initiated a Partial Index Rebuild.
+6. Monitored the rebuild status in Rebuild History.
+7. Reopened the Quote and Transaction Line Editor.
+8. Tested Browse Catalog to verify product visibility.
   
 
 ### 2-Subscription and Non-Subscription Products
@@ -22,13 +22,13 @@ Tested Browse Catalog to verify product visibility.
 ### Objective
 Understand how subscription and non-subscription products work in Salesforce Revenue Cloud Advanced and how their Asset records are created and managed.
 Steps Performed
-Created and configured subscription and non-subscription products.
-Configured the required product details, selling models, and pricing.
-Added products to the appropriate catalog and category.
-Created a Quote and added products through Browse Catalog.
-Created an Order from the Quote and activated the Order.
-Verified the generated Asset records under the Account's Related tab or the Assets list.
-Checked product details, quantities, status, and applicable subscription or purchase information.
+1. Created and configured subscription and non-subscription products.
+2. Configured the required product details, selling models, and pricing.
+3. Added products to the appropriate catalog and category.
+4. Created a Quote and added products through Browse Catalog.
+5. Created an Order from the Quote and activated the Order.
+6. Verified the generated Asset records under the Account's Related tab or the Assets list.
+7. Checked product details, quantities, status, and applicable subscription or purchase information.
 
 
 **Updated Date:** October 23, 2026
