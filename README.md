@@ -1,5 +1,119 @@
 
 # Salesforce Revenue Cloud & CPQ – Learning Topics & Summary
+**Updated Date:** October 30, 2026
+### Salesforce Revenue Cloud – Dynamic Revenue Orchestrator (DRO) Setup
+### 1. Introduction
+Dynamic Revenue Orchestrator (DRO) is a Salesforce Revenue Cloud feature used to manage and automate order fulfillment activities after an Order is activated.
+
+It helps businesses manage fulfillment tasks such as sending customer emails, generating delivery requests, shipping products, activating services, and integrating with external systems.
+
+Example: When a customer purchases a Headset, DRO manages the activities required to deliver the product to the customer.
+### 2. Prerequisites
+Before configuring DRO:
+1. Enable Dynamic Revenue Orchestrator in Salesforce Setup.
+2. Create the required Product (e.g., Headset).
+3. Ensure the product has valid pricing.
+4. Create an Order with the required Order Product.
+5. Configure the Order page with the Decomposition Details tab.
+3. Create Step Definition Group
+Navigation: App Launcher → Dynamic Revenue Orchestrator → Fulfillment Workspace.
+
+### Steps:
+1. Open Fulfillment Workspace.
+2. Create a new Step Definition Group.
+3. Enter Name: Headset Fulfillment.
+4. Save the record.
+Purpose: Step Definition Group is used to organize multiple fulfillment activities under one group.
+
+### Example activities:
+- Send Customer Email
+- Generate Delivery Request
+- Confirm Shipment
+4. Create Step Definitions
+Create individual Step Definitions for each fulfillment activity.
+
+### Example 1: Send Customer Email
+1. Open the Headset Fulfillment group.
+2. Create a new Step Definition.
+3. Enter Name: Send Customer Email.
+4. Configure the appropriate Manual Task type.
+5. Assign the task to the required user.
+6. Save.
+### Example 2: Generate Delivery Request
+1. Create another Step Definition.
+2. Enter Name: Generate Delivery Request.
+3. Configure the required task type.
+4. Save.
+### Example 3: Confirm Shipment
+1. Create another Step Definition.
+2. Enter Name: Confirm Shipment.
+3. Configure the required task type.
+4. Save.
+Purpose: Step Definitions specify the individual activities that must be performed during order fulfillment.
+
+Note: Creating a Step Definition alone does not execute the activity. Appropriate task configuration, automation, or integration is required.
+5. Create Fulfillment Scenario
+Navigation: Dynamic Revenue Orchestrator → Fulfillment Scenarios.
+
+### Steps:
+1. Open Fulfillment Scenarios.
+2. Click New.
+3. Enter Name: Headset Scenario.
+4. Select Product: Headset.
+5. Select the Step Definition Group: Headset Fulfillment.
+6. Configure execution rules if required.
+7. Save the record.
+Purpose: Fulfillment Scenario connects a product with its required fulfillment process.
+
+### Example:
+Product	Fulfillment Scenario
+Headset	Headset Scenario
+Laptop	Laptop Scenario
+Mobile	Mobile Scenario
+
+6. Configure Order Submission Flow
+Create a Record-Triggered Flow to automatically submit eligible Orders for fulfillment after activation.
+
+### Steps:
+1. Navigate to Setup → Flows.
+2. Click New Flow.
+3. Select Record-Triggered Flow.
+4. Select Object: Order.
+5. Configure the trigger when a record is updated.
+6. Set Entry Condition: Status = Activated.
+7. Add the appropriate Submit Order for Fulfillment Apex Action.
+8. Pass the Order ID.
+9. Configure synchronous execution as required.
+10. Save and Activate the Flow.
+Purpose: This Flow automatically submits the activated Order to DRO instead of requiring manual submission.
+7. Activate and Submit Order
+### Steps:
+1. Navigate to Orders.
+2. Open the required Order.
+3. Add the Headset product as an Order Product.
+4. Verify Order pricing.
+5. Activate the Order.
+6. Submit the Order for fulfillment manually or through the configured Flow.
+Purpose: Order submission initiates the fulfillment process for eligible Order Lines.
+8. Verify Fulfillment Plan
+### Steps:
+1. Open the submitted Order.
+2. Navigate to Decomposition Details.
+3. Check the generated fulfillment information.
+4. Open the Fulfillment Plan.
+5. Open the Orchestration Plan.
+6. Verify the generated fulfillment steps.
+Purpose: Fulfillment Plan and Orchestration Plan help track and manage the execution of fulfillment activities.
+9. Complete Manual Fulfillment Tasks
+### Steps:
+1. Open the Orchestration Plan.
+2. Find the Send Customer Email task.
+3. Perform the required activity manually.
+4. Mark the task as Completed.
+5. Repeat for other manual tasks.
+6. Verify the final fulfillment status.
+### Expected Result: Once all required fulfillment activities are completed, the fulfillment process should show Completed.
+
 **Updated Date:** October 29, 2026
 1. Revenue Cloud Advanced (RCA)
 Provides capabilities for product catalog management, pricing, quoting, and order processing.
