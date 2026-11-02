@@ -1,5 +1,88 @@
 
 # Salesforce Revenue Cloud & CPQ – Learning Topics & Summary
+**Updated Date:** November 2, 2026
+### Aggregate Quantity-Based Volume Discount – Salesforce Revenue Cloud
+
+1. Scenario
+The requirement is to apply a 5% volume discount when the combined quantity of the same product across multiple Quote Lines is between 2 and 10.
+
+Example:
+Product
+Quantity
+Wired Mouse
+1
+Wireless Mouse
+1
+Total Quantity
+2
+
+By default, the Volume Discount Element checks the quantity of each Quote Line separately. To solve this, we use the Aggregate Element to calculate the combined quantity.
+
+2. Implementation Steps
+### Step 1: Create Custom Field
+Go to Setup → Object Manager → Quote Line.
+Create a Number field named Total Volume Discount Quantity.
+This field will store the combined product quantity.
+
+### Step 2: Update Context Definition
+
+Open the existing Pricing Context Definition.
+Navigate to Sales Transaction Line.
+Add a new attribute named Total Volume Discount Quantity.
+Select Number as the data type.
+Set the direction to Input/Output.
+Save the Context Definition.
+
+### Step 3: Configure Entity Mapping
+
+Open the Quote Entity Mapping.
+Navigate to Sales Transaction Line Item.
+Find the Total Volume Discount Quantity attribute.
+Map it with the custom Quote Line field.
+Save and Publish the mapping.
+
+### Step 4: Configure Aggregate Element
+
+Open the existing Pricing Procedure.
+Add an Aggregate Element after the List Price element.
+Set Item Product Code as the Group By field.
+Select Line Item Quantity as the field to aggregate.
+Select SUM as the aggregation operation.
+Map the aggregated output to Total Volume Discount Quantity.
+
+### Step 5: Update Volume Discount Element
+
+Open the Volume Discount Element.
+Replace the individual Quote Line quantity with the aggregated quantity.
+Map the input quantity to Total Volume Discount Quantity.
+Verify the Lower Bound and Upper Bound configurations.
+Save the changes.
+
+### Step 6: Configure Price Adjustment Schedule
+
+Open Resource Manager in Pricing Procedure.
+Create a Constant resource.
+Provide the Price Adjustment Schedule Record ID.
+Map the Constant to the Price Adjustment Schedule input in the Volume Discount Element.
+Save the configuration.
+
+### Step 7: Activate Pricing Procedure
+
+Deactivate the existing version if required.
+Save the updated Pricing Procedure.
+Activate the new version.
+Verify the Pricing Procedure configuration.
+
+### Step 8: Test the Scenario
+
+Create a Quote and add two Quote Lines with quantity 1 each.
+Expected Result:
+Combined Quantity = 2.
+Volume Discount Range = 2 to 10.
+Discount = 5%.
+
+Both eligible Quote Lines should receive the 5% discount.
+
 **Updated Date:** October 30, 2026
 ### Salesforce Revenue Cloud – Dynamic Revenue Orchestrator (DRO) Setup
 ### 1. Introduction
