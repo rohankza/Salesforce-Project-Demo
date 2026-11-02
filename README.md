@@ -7,7 +7,7 @@
 The requirement is to apply a 5% volume discount when the combined quantity of the same product across multiple Quote Lines is between 2 and 10.
 
 Example:
-Product         Quantity
+1. Product         Quantity
 Wired Mouse        1
 Wireless Mouse     1
 Total Quantity     2
