@@ -3,18 +3,14 @@
 **Updated Date:** November 2, 2026
 ### Aggregate Quantity-Based Volume Discount – Salesforce Revenue Cloud
 
-1. Scenario
+### 1. Scenario 
 The requirement is to apply a 5% volume discount when the combined quantity of the same product across multiple Quote Lines is between 2 and 10.
 
 Example:
-Product
-Quantity
-Wired Mouse
-1
-Wireless Mouse
-1
-Total Quantity
-2
+Product         Quantity
+Wired Mouse        1
+Wireless Mouse     1
+Total Quantity     2
 
 By default, the Volume Discount Element checks the quantity of each Quote Line separately. To solve this, we use the Aggregate Element to calculate the combined quantity.
 
