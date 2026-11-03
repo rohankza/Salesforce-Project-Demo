@@ -1,5 +1,5 @@
 # Salesforce Agentforce – Opportunity Management Agent
-### update on 03-11-2026
+### Updated Date:November 03,2026
 
 ## 1. Show My Open Opportunities
 
